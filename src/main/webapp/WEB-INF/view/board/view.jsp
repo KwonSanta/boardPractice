@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -18,16 +19,16 @@
             <h3 class="mb-4">${board.id}번 게시물</h3>
             <div class="mb-3">
                 <label class="form-label" for="inputTitle">제목</label>
-                <input value="${board.title}" name="title" id="inputTitle" type="text" readonly>
+                <input class="form-control" value="${board.title}" name="title" id="inputTitle" type="text" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="inputContent">내용</label>
-                <textarea  name="content" id="inputContent" cols="30" rows="10" readonly>${board.content}
+                <textarea class="form-control" name="content" id="inputContent" cols="30" rows="10" readonly>${board.content}
                 </textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="inputWriter">작성자</label>
-                <input value="${board.writer}" name="writer" id="inputWriter" type="text" readonly>
+                <input class="form-control" value="${board.writer}" name="writer" id="inputWriter" type="text" readonly>
             </div>
 
             <a class="btn btn-primary" href="/">목록</a>

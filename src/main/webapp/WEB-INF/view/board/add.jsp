@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -22,11 +23,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputTitle">제목</label>
-                    <input class="form-control" name="title" id="inputTitle" type="text">
+                    <input class="form-control" name="title" id="inputTitle" type="text" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputContent">내용</label>
-                    <textarea class="form-control" name="content" id="inputContent" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="content" id="inputContent" cols="30" rows="10" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputWriter">작성자</label>

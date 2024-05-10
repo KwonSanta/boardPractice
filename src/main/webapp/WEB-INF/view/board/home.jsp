@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<c:import url="/WEB-INF/fragment/navbar.jsp"/>
+
 <div class="container">
     <div class="row justify-content">
         <div class="col-12">
@@ -35,7 +37,7 @@
                         <td>${board.id}</td>
                         <td>
                             <a href="${viewLink}">
-                                ${board.title}
+                                    ${board.title}
                             </a>
                         </td>
                         <td>${board.writer}</td>
@@ -46,6 +48,79 @@
                 </c:forEach>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<%--todo : 페이징 처리--%>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+
+                    <%-- ⏮️ : 맨앞 버튼--%>
+                    <c:if test="${pageInfo.currentPage > 1}">
+                        <c:url var="firstPageLink" value="/">
+                            <c:param name="page" value="1"/>
+                        </c:url>
+                        <li class="page-item">
+                            <a class="page-link" href="${firstPageLink}">
+                                <span aria-hidden="true">⏮️</span>
+                            </a>
+                        </li>
+                    </c:if>
+
+                    <%-- ◀️ : 이전 버튼 --%>
+                    <c:if test="${pageInfo.prev > 0}">
+                        <c:url var="prevPageLink" value="/">
+                            <c:param name="page" value="${pageInfo.prev}"/>
+                        </c:url>
+                    </c:if>
+                    <li class="page-item">
+                        <a class="page-link" href="${prevPageLink}">
+                            <span aria-hidden="true">◀️</span>
+                        </a>
+                    </li>
+
+                    <%-- 페이지 번호 링크들 --%>
+                    <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" var="pageNumber">
+                        <c:url var="pageLink" value="/">
+                            <c:param name="page" value="${pageNumber}"></c:param>
+                        </c:url>
+
+                        <li class="page-item ${pageInfo.currentPage eq pageNumber ? 'active' : ''}">
+                            <a class="page-link" href="${pageLink}">${pageNumber}</a>
+                        </li>
+                    </c:forEach>
+
+                    <%-- ▶️ : 다음 버튼 --%>
+                    <c:if test="${pageInfo.next < pageInfo.endPage}">
+                        <c:url var="nextPageLink" value="/">
+                            <c:param name="page" value="${pageInfo.next}"/>
+                        </c:url>
+                    </c:if>
+                    <li class="page-item">
+                        <a class="page-link" href="${nextPageLink}">
+                            <span aria-hidden="true">▶️</span>
+                        </a>
+                    </li>
+
+                    <%-- ⏭️ : 맨뒤 버튼 --%>
+                    <c:if test="${pageInfo.currentPage < pageInfo.totalPages}">
+                        <c:url var="lastPageLink" value="/">
+                            <c:param name="page" value="${pageInfo.totalPages}"/>
+                        </c:url>
+                    </c:if>
+                    <li class="page-item">
+                        <a class="page-link" href="${lastPageLink}">
+                            <span aria-hidden="true">⏭️</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
         </div>
     </div>
 </div>

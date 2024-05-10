@@ -22,12 +22,33 @@ ALTER TABLE board
 
 INSERT INTO board
     (title, content, writer, inserted, views, likes)
-VALUES
-    ('test_title1', 'test_content1', 'test_writer1', now(), 0, 0),
-    ('test_title2', 'test_content2', 'test_writer2', now(), 0, 0),
-    ('test_title3', 'test_content3', 'test_writer3', now(), 0, 0),
-    ('test_title4', 'test_content4', 'test_writer4', now(), 0, 0),
-    ('test_title5', 'test_content5', 'test_writer5', now(), 0, 0);
+VALUES ('test_title1', 'test_content1', 'test_writer1', now(), 0, 0),
+       ('test_title2', 'test_content2', 'test_writer2', now(), 0, 0),
+       ('test_title3', 'test_content3', 'test_writer3', now(), 0, 0),
+       ('test_title4', 'test_content4', 'test_writer4', now(), 0, 0),
+       ('test_title5', 'test_content5', 'test_writer5', now(), 0, 0);
+
+INSERT INTO board
+    (title, content, writer)
+SELECT title, content, writer
+FROM board;
 
 DESC board;
-SELECT * FROM board;
+SELECT *
+FROM board;
+
+DELETE
+FROM board
+WHERE id > 1000;
+
+# 회원 테이블
+# id, email, pwd, address, name, birth_date
+CREATE TABLE member
+(
+    id         INT PRIMARY KEY AUTO_INCREMENT,
+    pwd        VARCHAR(50)  NOT NULL,
+    email      VARCHAR(50)  NOT NULL UNIQUE ,
+    address    VARCHAR(300) NOT NULL,
+    name       VARCHAR(50)  NOT NULL,
+    birth_date DATE         NOT NULL
+)

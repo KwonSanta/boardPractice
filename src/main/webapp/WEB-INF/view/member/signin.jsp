@@ -16,31 +16,23 @@
     <div class="row justify-content-center">
         <div class="col-6">
 
-            <h3 class="mb-4">${board.id}번 게시물 수정</h3>
-
-            <form action="/board/modify" method="post">
+            <form action="/member/signin">
                 <div class="mb-3">
-                    <label class="form-label" for="inputTitle">제목</label>
-                    <input value="${board.title}" name="title" id="inputTitle" type="text">
+                    <label class="form-label" for="inputEmail">Email</label>
+                    <input class="form-control" id="inputEmail" type="email">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="inputContent">내용</label>
-                    <textarea  name="content" id="inputContent" cols="30" rows="10">${board.content}
-                    </textarea>
+                    <label class="form-label" for="inputPassword">Password</label>
+                    <input class="form-control" id="inputPassword" type="password">
                 </div>
-                <div>
-                    <button class="btn btn-secondary">수정 완료</button>
-                </div>
-
-                <div>
-                    <input hidden="" type="text" name="id" value="${board.id}">
+                <div class="mb-3">
+                    <button class="btn btn-primary">로그인</button>
                 </div>
             </form>
 
         </div>
     </div>
 </div>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="

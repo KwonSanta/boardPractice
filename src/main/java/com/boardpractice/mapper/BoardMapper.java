@@ -27,8 +27,9 @@ public interface BoardMapper {
             SELECT *
             FROM board
             ORDER BY id DESC
+            LIMIT 10
             """)
-    List<Board> selectAll();
+    List<Board> selectAll(Integer page);
 
     @Update("""
             UPDATE board
@@ -45,4 +46,17 @@ public interface BoardMapper {
             WHERE id = #{id}
             """)
     int deleteById(Integer id);
+
+    @Select("""
+            SELECT COUNT(*) FROM board
+            """)
+    int countAll();
+
+    @Select("""
+            SELECT *
+            FROM board
+            ORDER BY id DESC
+            LIMIT 10 OFFSET #{offset}
+            """)
+    List<Board> selectAllByPage(int offset);
 }

@@ -16,31 +16,31 @@
     <div class="row justify-content-center">
         <div class="col-6">
 
-            <h3 class="mb-4">${board.id}번 게시물 수정</h3>
-
-            <form action="/board/modify" method="post">
-                <div class="mb-3">
-                    <label class="form-label" for="inputTitle">제목</label>
-                    <input value="${board.title}" name="title" id="inputTitle" type="text">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="inputContent">내용</label>
-                    <textarea  name="content" id="inputContent" cols="30" rows="10">${board.content}
-                    </textarea>
-                </div>
-                <div>
-                    <button class="btn btn-secondary">수정 완료</button>
-                </div>
-
-                <div>
-                    <input hidden="" type="text" name="id" value="${board.id}">
-                </div>
-            </form>
-
+            <h3 class="col-4">회원 정보</h3>
+            <hr>
+            <div class="mb-3">
+                <label class="form-label" for="">USER NAME</label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="">이메일</label>
+                <input class="form-control" type="email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for=""></label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for=""></label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for=""></label>
+                <input class="form-control" type="text">
+            </div>
         </div>
     </div>
 </div>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
